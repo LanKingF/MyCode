@@ -1,0 +1,12 @@
+一个文件夹只能绑定一个库；
+绑定过程：（在要绑定的文件夹下）
+git init   %%%%初始化
+git remote add origin 这里是库的地址
+
+
+git status   %%%%查看当前状态（是否新加文件或者修改文件）
+git add .    %%%%将新的文件全部添加准备上传
+git commit -m“这里填写新文件的说明”
+git push origin master   %%%%%%上传
+git config core.quotepath false  %%%%%%显示中文 
+ 

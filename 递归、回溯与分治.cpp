@@ -15,42 +15,67 @@ using namespace std;
 //	µÝ¹é(i+1,num,item,result);
 //}
 
-class solution
+//class solution
+//{
+//public:
+//	vector<vector<int>> »ØËÝ(vector<int> num)
+//	{
+//		vector<vector<int>> result;
+//		vector<int> item;
+//		result.push_back(item);
+//		µÝ¹é(0,num,item,result);
+//		return result;
+//	};
+//private:
+//	void µÝ¹é(int i, vector<int>& num,
+//		vector<int> &item, vector<vector<int>>& result)
+//	{
+//		if (i>=num.size())
+//		{
+//			return;
+//		}
+//		item.push_back(num[i]);
+//		result.push_back(item);
+//		µÝ¹é(i + 1, num, item, result);
+//		item.pop_back();
+//		µÝ¹é(i + 1, num, item, result);
+//	}
+//};
+
+class solution//////Éú³ÉºÏ·¨µÄÀ¨ºÅ×é³É
 {
 public:
-	vector<vector<int>> »ØËÝ(vector<int> num)
+	vector<string> kuohao(int n)
 	{
-		vector<vector<int>> result;
-		vector<int> item;
-		result.push_back(item);
-		µÝ¹é(0,num,item,result);
+		vector<string> result;
+		generate(" ", n, n, result);
 		return result;
-	};
+	}
 private:
-	void µÝ¹é(int i, vector<int>& num,
-		vector<int> &item, vector<vector<int>>& result)
+	void generate(string item, int l, int r, vector<string> &result)
 	{
-		if (i>=num.size())
+		if (l == 0 && r == 0)
 		{
+			result.push_back(item);
 			return;
 		}
-		item.push_back(num[i]);
-		result.push_back(item);
-		µÝ¹é(i + 1, num, item, result);
-		item.pop_back();
-		µÝ¹é(i + 1, num, item, result);
+		if (l > 0)
+		{
+			generate(item + '(', l - 1, r, result);
+		}
+		if (l < r)
+		{
+			generate(item + ')', l, r - 1, result);
+		}
 	}
 };
 int main()
 {
-	vector<int> num;
-	num.push_back(1);
-	num.push_back(2);
-	num.push_back(3);
-	vector <int> item;
-	vector <vector<int>> result;
-	solution s;
-	s.»ØËÝ(num);
+	solution a;
+	vector<string>result=a.kuohao(3);
+	for (int i = 0; i != result.size(); i++)
+		cout << result[i].c_str() << " ";
+	cout << endl;
 	system("pause");
 	return 0;
 }

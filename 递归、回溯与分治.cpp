@@ -42,40 +42,52 @@ using namespace std;
 //	}
 //};
 
-class solution//////生成合法的括号组成
-{
-public:
-	vector<string> kuohao(int n)
-	{
-		vector<string> result;
-		generate(" ", n, n, result);
-		return result;
-	}
-private:
-	void generate(string item, int l, int r, vector<string> &result)
-	{
-		if (l == 0 && r == 0)
-		{
-			result.push_back(item);
-			return;
-		}
-		if (l > 0)
-		{
-			generate(item + '(', l - 1, r, result);
-		}
-		if (l < r)
-		{
-			generate(item + ')', l, r - 1, result);
-		}
-	}
-};
+//class solution//////生成合法的括号组成
+//{
+//public:
+//	vector<string> kuohao(int n)
+//	{
+//		vector<string> result;
+//		generate(" ", n, n, result);
+//		return result;
+//	}
+//private:
+//	void generate(string item, int l, int r, vector<string> &result)
+//	{
+//		if (l == 0 && r == 0)
+//		{
+//			result.push_back(item);
+//			return;
+//		}
+//		if (l > 0)
+//		{
+//			generate(item + '(', l - 1, r, result);
+//		}
+//		if (l < r)
+//		{
+//			generate(item + ')', l, r - 1, result);
+//		}
+//	}
+//};
+
 int main()
 {
-	solution a;
-	vector<string>result=a.kuohao(3);
-	for (int i = 0; i != result.size(); i++)
-		cout << result[i].c_str() << " ";
-	cout << endl;
+	vector< vector<int> > mark;
+	for (size_t i = 0; i < 3; ++i)
+	{
+		mark.push_back(vector<int>());
+		for (size_t j = 0; j < 4; j++)
+		{
+			mark[i].push_back(0);
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+			cout << mark[i][j] << " ";
+		cout << endl;
+	}
+
 	system("pause");
 	return 0;
 }
